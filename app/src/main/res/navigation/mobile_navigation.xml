@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_admin_dashboard">
+
+    <fragment
+        android:id="@+id/nav_admin_dashboard"
+        android:name="com.example.teams.ui.admin.AdminDashboardFragment"
+        android:label="@string/menu_admin_dashboard"
+        tools:layout="@layout/fragment_admin_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_coach_team"
+        android:name="com.example.teams.ui.coach.CoachTeamFragment"
+        android:label="@string/menu_coach_team"
+        tools:layout="@layout/fragment_coach_team" />
+
+    <fragment
+        android:id="@+id/nav_add_team"
+        android:name="com.example.teams.ui.admin.AddTeamFragment"
+        android:label="@string/menu_add_team"
+        tools:layout="@layout/fragment_add_team" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.teams.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
