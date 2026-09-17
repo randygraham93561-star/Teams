@@ -5,17 +5,37 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_transform"
+            android:id="@+id/nav_admin_dashboard"
             android:icon="@drawable/ic_camera_black_24dp"
-            android:title="@string/menu_transform" />
+            android:title="@string/menu_admin_dashboard" />
         <item
-            android:id="@+id/nav_reflow"
+            android:id="@+id/nav_coach_team"
             android:icon="@drawable/ic_gallery_black_24dp"
-            android:title="@string/menu_reflow" />
+            android:title="@string/menu_coach_team" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_organization_settings"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="Org Rules &amp; Management" />
+        <item
+            android:id="@+id/nav_manage_organizations"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="Manage Organizations" />
+        <item
+            android:id="@+id/nav_add_team"
             android:icon="@drawable/ic_slideshow_black_24dp"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_add_team" />
+        <item
+            android:id="@+id/nav_team_wall"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Team Wall" />
+        <item
+            android:id="@+id/nav_roster"
+            android:icon="@android:drawable/ic_menu_my_calendar"
+            android:title="Team Roster" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="My Profile" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_settings_black_24dp"

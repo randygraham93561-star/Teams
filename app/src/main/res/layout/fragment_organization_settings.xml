@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_org_settings_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organization Rules"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_rules_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Set the playing time requirements for all teams in your organization."
+            app:layout_constraintTop_toBottomOf="@id/text_org_settings_title" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_org_criteria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/text_rules_desc">
+            <RadioButton android:id="@+id/radio_org_none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No Requirement" />
+            <RadioButton android:id="@+id/radio_org_half" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Half Game" />
+            <RadioButton android:id="@+id/radio_org_three_quarters" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3/4 Game" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_save_org_rules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Save Organization Rules"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_gk_requirement" />
+
+        <TextView
+            android:id="@+id/text_gk_requirement_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="GK Field Time Requirement"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group_org_criteria" />
+
+        <TextView
+            android:id="@+id/text_gk_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Set how many quarters a goalkeeper must play as a field player."
+            app:layout_constraintTop_toBottomOf="@id/text_gk_requirement_label" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_gk_requirement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/text_gk_desc">
+            <RadioButton android:id="@+id/radio_gk_none" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="No Requirement" />
+            <RadioButton android:id="@+id/radio_gk_one_quarter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 Quarter" />
+            <RadioButton android:id="@+id/radio_gk_half" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Half Game" />
+        </RadioGroup>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/btn_save_org_rules" />
+
+        <TextView
+            android:id="@+id/text_season_mgmt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Season Management"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_settings" />
+
+        <Button
+            android:id="@+id/btn_add_season"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Create Draft Season"
+            app:layout_constraintTop_toBottomOf="@id/text_season_mgmt_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_seasons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/btn_add_season" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

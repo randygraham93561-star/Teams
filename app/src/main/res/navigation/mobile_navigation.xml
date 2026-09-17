@@ -3,7 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_admin_dashboard">
+    app:startDestination="@+id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.teams.ui.auth.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/nav_coach_auth"
+        android:name="com.example.teams.ui.auth.CoachAuthFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_coach_auth" />
+
+    <fragment
+        android:id="@+id/nav_change_password"
+        android:name="com.example.teams.ui.auth.ChangePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_password" />
+
+    <fragment
+        android:id="@+id/nav_parent_join_team"
+        android:name="com.example.teams.ui.coach.ParentJoinTeamFragment"
+        android:label="Join Team"
+        tools:layout="@layout/fragment_parent_join_team">
+        <argument
+            android:name="teamId"
+            app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="teams://join/{teamId}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_organization_settings"
+        android:name="com.example.teams.ui.admin.OrganizationSettingsFragment"
+        android:label="Organization Rules"
+        tools:layout="@layout/fragment_organization_settings" />
+
+    <fragment
+        android:id="@+id/nav_manage_organizations"
+        android:name="com.example.teams.ui.admin.ManageOrganizationsFragment"
+        android:label="Manage Organizations"
+        tools:layout="@layout/fragment_manage_organizations" />
+
+    <fragment
+        android:id="@+id/nav_edit_organization"
+        android:name="com.example.teams.ui.admin.EditOrganizationFragment"
+        android:label="Edit Organization"
+        tools:layout="@layout/fragment_edit_organization">
+        <argument
+            android:name="orgId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_organization_selection"
+        android:name="com.example.teams.ui.admin.OrganizationSelectionFragment"
+        android:label="Select Organization"
+        tools:layout="@layout/fragment_organization_selection" />
 
     <fragment
         android:id="@+id/nav_admin_dashboard"
@@ -24,8 +84,71 @@
         tools:layout="@layout/fragment_add_team" />
 
     <fragment
+        android:id="@+id/nav_add_schedule_item"
+        android:name="com.example.teams.ui.coach.AddScheduleItemFragment"
+        android:label="Add to Schedule"
+        tools:layout="@layout/fragment_add_schedule_item">
+        <argument
+            android:name="teamId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_lineup"
+        android:name="com.example.teams.ui.coach.LineupFragment"
+        android:label="Lineup Builder"
+        tools:layout="@layout/fragment_lineup">
+        <argument
+            android:name="teamId"
+            app:argType="string" />
+        <argument
+            android:name="gameId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_team_wall"
+        android:name="com.example.teams.ui.coach.TeamWallFragment"
+        android:label="Team Wall"
+        tools:layout="@layout/fragment_team_wall" />
+
+    <fragment
+        android:id="@+id/nav_roster"
+        android:name="com.example.teams.ui.coach.RosterFragment"
+        android:label="Team Roster"
+        tools:layout="@layout/fragment_roster" />
+
+    <fragment
+        android:id="@+id/nav_player_details"
+        android:name="com.example.teams.ui.coach.PlayerDetailsFragment"
+        android:label="Player Information"
+        tools:layout="@layout/fragment_player_details">
+        <argument
+            android:name="playerId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="teamId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_settings"
         android:name="com.example.teams.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.teams.ui.profile.ProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_welcome_setup"
+        android:name="com.example.teams.ui.auth.WelcomeSetupFragment"
+        android:label="Welcome Setup"
+        tools:layout="@layout/fragment_welcome_setup" />
 </navigation>

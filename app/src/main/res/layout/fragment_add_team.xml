@@ -15,21 +15,99 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_top_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_team_id"
+        android:id="@+id/layout_cloud_sync"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="@string/label_team_id"
+        android:layout_marginTop="16dp"
+        android:hint="Select Existing Team (Live Season)"
         app:layout_constraintTop_toBottomOf="@id/text_title">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_team_id"
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_cloud_teams"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_team_id_builder_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="OR Form New Team ID"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_cloud_sync" />
+
+    <LinearLayout
+        android:id="@+id/layout_builder_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@id/text_team_id_builder_label">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Div">
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_builder_div"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Gen">
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete_builder_gen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Num">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_builder_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_generated_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Team ID: ----"
+        android:textColor="?attr/colorPrimary"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_builder_row" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider_builder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/text_generated_id" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_coach_email"
@@ -37,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="@string/label_coach_email"
-        app:layout_constraintTop_toBottomOf="@id/layout_team_id">
+        app:layout_constraintTop_toBottomOf="@id/divider_builder">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_coach_email"
@@ -46,50 +124,12 @@
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/text_criteria_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/label_play_criteria"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_top_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_coach_email" />
-
-    <RadioGroup
-        android:id="@+id/radio_group_criteria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/text_criteria_label">
-
-        <RadioButton
-            android:id="@+id/radio_none"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/criteria_none"
-            android:checked="true" />
-
-        <RadioButton
-            android:id="@+id/radio_half"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/criteria_half" />
-
-        <RadioButton
-            android:id="@+id/radio_three_quarters"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/criteria_three_quarters" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_save_team"
-        app:layout_constraintTop_toBottomOf="@id/radio_group_criteria" />
+        android:layout_marginTop="24dp"
+        android:text="Assign Coach to Team ID"
+        app:layout_constraintTop_toBottomOf="@id/layout_coach_email" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
